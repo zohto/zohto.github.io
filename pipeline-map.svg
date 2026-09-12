@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6492 1762" role="img" aria-labelledby="t d">
+<title id="t">Applicant pipeline, every node as it ran</title>
+<desc id="d">Node map of the production workflow: 92 nodes across three scheduled chains and an error subworkflow. Node names only; no data, no credentials, no client.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c7368"/></marker></defs>
+<rect width="6492" height="1762" fill="#151412"/>
+<path d="M644 89 C782 89 782 185 920 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1316 185 C1342 185 1342 185 1368 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1540 185 C1566 185 1566 185 1592 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1764 185 C1790 185 1790 185 1816 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1988 185 C2014 185 2014 113 2040 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2212 113 C2238 113 2238 113 2264 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2436 113 C2462 113 2462 113 2488 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2884 113 C2910 113 2910 113 2936 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3108 113 C3134 113 3134 113 3160 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3332 113 C3358 113 3358 113 3384 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4452 113 C4478 113 4478 113 4504 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M644 793 C670 793 670 793 696 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M868 793 C894 793 894 793 920 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1092 793 C1118 793 1118 793 1144 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4900 889 C4926 889 4926 889 4952 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5348 553 C5374 553 5374 649 5400 649" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5572 649 C5598 649 5598 649 5624 649" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 1721 C222 1721 222 1721 248 1721" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 1721 C446 1721 446 1721 472 1721" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4900 185 C3358 185 3358 185 1816 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3556 113 C3582 113 3582 41 3608 41" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3556 113 C3806 113 3806 113 4056 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3780 41 C3806 41 3806 41 3832 41" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4004 41 C4030 41 4030 113 4056 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4228 113 C4254 113 4254 113 4280 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3556 889 C3582 889 3582 889 3608 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4228 889 C4254 889 4254 889 4280 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1092 185 C1118 185 1118 185 1144 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M6020 793 C3582 793 3582 793 1144 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4452 889 C4478 889 4478 889 4504 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3780 889 C3806 889 3806 889 3832 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5348 1401 C5374 1401 5374 1401 5400 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5572 1401 C5598 1401 5598 1401 5624 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5796 1401 C5822 1401 5822 1401 5848 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1764 1305 C1790 1305 1790 1377 1816 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1988 1377 C2014 1377 2014 1377 2040 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1092 1305 C1118 1305 1118 1305 1144 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1540 1305 C1566 1305 1566 1305 1592 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1316 1305 C1342 1305 1342 1305 1368 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2660 113 C2686 113 2686 113 2712 113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4676 113 C4702 113 4702 185 4728 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4676 889 C4702 889 4702 889 4728 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5124 889 C5150 889 5150 553 5176 553" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5796 649 C5822 649 5822 793 5848 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4004 889 C4030 889 4030 889 4056 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M644 1377 C670 1377 670 1377 696 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M868 1377 C894 1377 894 1305 920 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M868 1377 C1342 1377 1342 1377 1816 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2212 1377 C2238 1377 2238 1377 2264 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2436 1377 C2462 1377 2462 1377 2488 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2660 1377 C2686 1377 2686 1305 2712 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2660 1377 C3806 1377 3806 1401 4952 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3780 1209 C3806 1209 3806 1209 3832 1209" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5124 1401 C5150 1401 5150 1401 5176 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M6020 1401 C6046 1401 6046 1401 6072 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M6244 1401 C6270 1401 6270 1401 6296 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4900 1113 C4926 1113 4926 1401 4952 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1316 793 C1342 793 1342 625 1368 625" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1540 625 C1566 625 1566 625 1592 625" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1764 625 C1790 625 1790 625 1816 625" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M1988 625 C2014 625 2014 625 2040 625" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2212 625 C2238 625 2238 625 2264 625" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2436 625 C2462 625 2462 745 2488 745" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2436 625 C3694 625 3694 553 4952 553" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5124 553 C5150 553 5150 553 5176 553" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2660 745 C2686 745 2686 745 2712 745" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2884 745 C2910 745 2910 745 2936 745" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3108 745 C4142 745 4142 745 5176 745" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3108 745 C3134 745 3134 889 3160 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3332 889 C3358 889 3358 889 3384 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M5348 745 C5374 745 5374 649 5400 649" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M2884 1305 C2910 1305 2910 1305 2936 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3108 1305 C3134 1305 3134 1305 3160 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3332 1305 C3358 1305 3358 1305 3384 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3556 1305 C3582 1305 3582 1209 3608 1209" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M3556 1305 C4142 1305 4142 1497 4728 1497" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4900 1497 C4926 1497 4926 1401 4952 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4004 1209 C4030 1209 4030 1209 4056 1209" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4228 1209 C4254 1209 4254 1209 4280 1209" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4452 1209 C4590 1209 4590 1305 4728 1305" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4452 1209 C4478 1209 4478 1113 4504 1113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4676 1113 C4702 1113 4702 1113 4728 1113" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M4900 1305 C4926 1305 4926 1401 4952 1401" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 329 C222 329 222 329 248 329" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 329 C446 329 446 89 472 89" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 329 C446 329 446 281 472 281" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 41 C222 41 222 41 248 41" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 41 C446 41 446 89 472 89" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 41 C446 41 446 281 472 281" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 889 C222 889 222 889 248 889" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 889 C446 889 446 793 472 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 697 C222 697 222 697 248 697" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 697 C446 697 446 793 472 793" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 1473 C222 1473 222 1473 248 1473" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 1473 C446 1473 446 1377 472 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M196 1281 C222 1281 222 1281 248 1281" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M420 1281 C446 1281 446 1377 472 1377" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M644 281 C670 281 670 281 696 281" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<path d="M868 281 C894 281 894 185 920 185" fill="none" stroke="#5a544c" stroke-width="1.2" marker-end="url(#a)"/>
+<rect x="24" y="312" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="333" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A1 – Schedule: Intake</text>
+<rect x="472" y="72" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="558" y="93" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A2 – GS Get RAW Rows</text>
+<rect x="472" y="264" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="558" y="285" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A3 – GS Get PIPELINE (dedupe …</text>
+<rect x="1144" y="168" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1230" y="189" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A5 – Dedupe RAW vs MASTER</text>
+<rect x="1368" y="168" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1454" y="189" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A6 – Normalize Fields</text>
+<rect x="1592" y="168" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1678" y="189" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A7 – Generate Keys</text>
+<rect x="1816" y="168" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1902" y="189" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A8 – Split Batch (25)</text>
+<rect x="2040" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2126" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A9 – Apply Decision Logic</text>
+<rect x="2264" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2350" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A10 – Prep MASTER Record</text>
+<rect x="2712" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2798" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A11 – GS Append PIPELINE</text>
+<rect x="2936" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3022" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A12 – Prep Approval Queue Row</text>
+<rect x="3160" y="96" width="172" height="34" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.6"/>
+<text x="3246" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A13 – GS Append REVIEW_QUEUE</text>
+<rect x="4280" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4366" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A14 – Format Processing Log</text>
+<rect x="4728" y="168" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4814" y="189" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A15 – GS Append LOGS</text>
+<rect x="24" y="872" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B1 – Schedule: Outreach</text>
+<rect x="472" y="776" width="172" height="34" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.6"/>
+<text x="558" y="797" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B2 – GS Get REVIEW_QUEUE</text>
+<rect x="696" y="776" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="782" y="797" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B3 – Filter Approved Unsent</text>
+<rect x="920" y="776" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1006" y="797" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B4 – Any Rows to Send?</text>
+<rect x="1816" y="608" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1902" y="629" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B5 – Build Re-engagement Email</text>
+<rect x="2488" y="728" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2574" y="749" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6 – Gmail Send Re-engagement</text>
+<rect x="4728" y="872" width="172" height="34" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.6"/>
+<text x="4814" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B9 – GS Update REVIEW_QUEUE</text>
+<rect x="5176" y="536" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5262" y="557" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B10 – GS Update PIPELINE (out…</text>
+<rect x="5400" y="632" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5486" y="653" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B11 – Format Processing Log</text>
+<rect x="5848" y="776" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5934" y="797" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B12 – GS Append LOGS</text>
+<rect x="24" y="1704" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="1725" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">E1 – Error Trigger</text>
+<rect x="248" y="1704" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="1725" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">E2 – Prep Error Log Entry</text>
+<rect x="472" y="1704" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="558" y="1725" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">E3 – GS Append LOGS (error)</text>
+<rect x="3384" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3470" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A_IF – Is Duplicate?</text>
+<rect x="3608" y="24" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3694" y="45" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A_Code – Prep Duplicate Log</text>
+<rect x="3832" y="24" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3918" y="45" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A_GS – Append LOGS (duplicate)</text>
+<rect x="4056" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4142" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A_Merge – Post-Duplicate</text>
+<rect x="3384" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3470" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6b – Capture Thread ID</text>
+<rect x="4056" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4142" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6c – GS Update PIPELINE (thr…</text>
+<rect x="920" y="168" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1006" y="189" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">A4 – Merge RAW + Pipeline Keys</text>
+<rect x="1144" y="776" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1230" y="797" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B4b – Split Batch (25)</text>
+<rect x="4280" y="872" width="172" height="34" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.6"/>
+<text x="4366" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B8b – Prep REVIEW_QUEUE Update</text>
+<rect x="3608" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3694" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6b_Prep – Strip to PIPELINE …</text>
+<rect x="5176" y="1384" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5262" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C7 – Prep PIPELINE Update</text>
+<rect x="5400" y="1384" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5486" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C12 – GS Update PIPELINE (rep…</text>
+<rect x="5624" y="1384" width="172" height="34" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.6"/>
+<text x="5710" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C12b – Prep REVIEW_QUEUE Stag…</text>
+<rect x="5848" y="1384" width="172" height="34" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.6"/>
+<text x="5934" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C12c – GS Update REVIEW_QUEUE…</text>
+<rect x="24" y="1456" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="1477" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C1 – Schedule: Reply Check</text>
+<rect x="472" y="1360" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="558" y="1381" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C3 – GS Get PIPELINE</text>
+<rect x="2040" y="1360" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2126" y="1381" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C4 – Match Thread to Candidate</text>
+<rect x="1592" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1678" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C2 – Extract Thread ID</text>
+<rect x="1816" y="1360" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1902" y="1381" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C_Merge – Thread + PIPELINE</text>
+<rect x="920" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1006" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C1b – Gmail Get By Thread</text>
+<rect x="1368" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1454" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C1c – Gmail Get Full Message</text>
+<rect x="1144" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1230" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C1b_Filter – Replies Only</text>
+<rect x="2488" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2574" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Wait</text>
+<rect x="4504" y="96" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4590" y="117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Wait1</text>
+<rect x="4504" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4590" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Wait2</text>
+<rect x="4952" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5038" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Wait3</text>
+<rect x="5624" y="632" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5710" y="653" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Wait4</text>
+<rect x="3832" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3918" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Wait5</text>
+<rect x="696" y="1360" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="782" y="1381" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C3b – Filter Active Threads</text>
+<rect x="2264" y="1360" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2350" y="1381" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C5 – Decide Action</text>
+<rect x="2488" y="1360" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2574" y="1381" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C_IF – Send Email?</text>
+<rect x="3608" y="1192" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3694" y="1213" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C6a – Build Reply Email</text>
+<rect x="3832" y="1192" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3918" y="1213" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C6b – Gmail Send Threaded</text>
+<rect x="4952" y="1384" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5038" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C_Merge2 – Send Path Rejoin</text>
+<rect x="6072" y="1384" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="6158" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C8 – Format C-Chain Log</text>
+<rect x="6296" y="1384" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="6382" y="1405" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C9 – GS Append LOGS</text>
+<rect x="4728" y="1096" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4814" y="1117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C6c – Restore Candidate Paylo…</text>
+<rect x="1368" y="608" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1454" y="629" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Z_GetSentCount_B – GS Read LO…</text>
+<rect x="1592" y="608" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="1678" y="629" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B_PassCandidates</text>
+<rect x="2040" y="608" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2126" y="629" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B5b – Check Daily Cap</text>
+<rect x="2264" y="608" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2350" y="629" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B5c – Under Cap?</text>
+<rect x="4952" y="536" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5038" y="557" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B_Cap_Skip – Mark Row Queued</text>
+<rect x="2712" y="728" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2798" y="749" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6_ErrorCheck – Classify Error</text>
+<rect x="2936" y="728" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3022" y="749" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6_IF_Halt – Halt Gmail?</text>
+<rect x="5176" y="728" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="5262" y="749" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B_Halt_Log – Mark Halt</text>
+<rect x="3160" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3246" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">B6_Wait – 3-Min Pacing</text>
+<rect x="2712" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="2798" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Z_GetSentCount_C – GS Read LO…</text>
+<rect x="2936" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3022" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C_PassCandidates</text>
+<rect x="3160" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3246" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C5b – Check Daily Cap</text>
+<rect x="3384" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="3470" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C5c – Under Cap?</text>
+<rect x="4728" y="1480" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4814" y="1501" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C_Cap_Hold – Mark Row Held</text>
+<rect x="4056" y="1192" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4142" y="1213" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C6b_ErrorCheck – Classify Err…</text>
+<rect x="4280" y="1192" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4366" y="1213" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C6b_IF_Halt – Halt Gmail?</text>
+<rect x="4728" y="1288" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4814" y="1309" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C_Halt_Log – Mark Halt</text>
+<rect x="4504" y="1096" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="4590" y="1117" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">C6b_Wait – 3-Min Pacing</text>
+<rect x="24" y="24" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="45" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Webhook In - manual fire A</text>
+<rect x="248" y="312" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="333" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Set Fire Source - Schedule A</text>
+<rect x="248" y="24" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="45" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Set Fire Source - Webhook A</text>
+<rect x="24" y="680" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="701" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Webhook In - manual fire B</text>
+<rect x="248" y="872" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="893" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Set Fire Source - Schedule B</text>
+<rect x="248" y="680" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="701" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Set Fire Source - Webhook B</text>
+<rect x="24" y="1264" width="172" height="34" fill="#1f1d1a" stroke="#a26b3d" stroke-width="1.6"/>
+<text x="110" y="1285" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Webhook In - manual fire C</text>
+<rect x="248" y="1456" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="1477" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Set Fire Source - Schedule C</text>
+<rect x="248" y="1264" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="334" y="1285" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Set Fire Source - Webhook C</text>
+<rect x="696" y="264" width="172" height="34" fill="#151412" stroke="#b3aa9b" stroke-width="1.1"/>
+<text x="782" y="285" text-anchor="middle" font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ece5d8">Project record_id</text>
+</svg>

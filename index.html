@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brandon Robinson: systems I built, and what they proved</title>
+<meta name="description" content="Production automation and evaluation systems on n8n, Python and TypeScript, written up honestly: what each one is, how it works, the decisions behind it, and what happened after.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brandon Robinson: systems I built, and what they proved">
+<meta property="og:description" content="A 92-node production pipeline for a client, an outbound program measured until its own numbers ended it, and the tools behind my own work. Written up with the outcomes left in.">
+<meta property="og:url" content="https://zohto.github.io/">
+<meta property="og:image" content="https://zohto.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zohto.github.io/og.png">
+<link rel="canonical" href="https://zohto.github.io/">
+<meta name="twitter:title" content="Brandon Robinson: systems I built, and what they proved">
+<meta name="twitter:description" content="Production automation and evaluation systems, written up with the outcomes left in.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1917'/%3E%3Crect x='4' y='4' width='6' height='24' fill='%237b4f2c'/%3E%3Crect x='13' y='4' width='6' height='24' fill='%237b4f2c'/%3E%3Ccircle cx='25' cy='23' r='4' fill='%236b9a63'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/archivo-local.css">
+<style>
+  :root {
+    --wall: #1a1917;
+    --wall-deep: #121110;
+    --walnut: #7b4f2c;
+    --walnut-hi: #a26b3d;
+    --groove: #3a2616;
+    --amber: #f0a43a;
+    --green: #6b9a63;
+    --green-deep: #2f4a33;
+    --ink: #ece5d8;
+    --ink-2: #b3aa9b;
+    --ink-3: #9a9186;
+    --measure: 66ch;
+    --slat-w: 72px;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--wall); color: var(--ink); font-family: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0; min-height: 100vh;
+    background:
+      radial-gradient(ellipse 900px 520px at 0% 0%, rgba(240,164,58,0.22), transparent 62%),
+      linear-gradient(180deg, #1d1b19 0%, var(--wall) 30%, var(--wall-deep) 100%);
+    background-attachment: fixed;
+  }
+  .slats {
+    position: fixed; inset: 0 auto 0 0; width: var(--slat-w); z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(240,164,58,0.28) 0%, rgba(240,164,58,0) 28%, rgba(0,0,0,0.35) 100%),
+      repeating-linear-gradient(90deg, var(--walnut-hi) 0 2px, var(--walnut) 2px 9px, var(--groove) 9px 13px);
+    box-shadow: 8px 0 24px rgba(0,0,0,0.45);
+  }
+  main { position: relative; z-index: 1; margin-left: var(--slat-w); }
+  .page { max-width: 1120px; margin: 0 auto; padding: 7vh 32px 10vh; }
+  a { color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: rgba(107,154,99,0.45); }
+  a:hover { text-decoration-color: var(--green); }
+  a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+  .who { display: flex; justify-content: space-between; gap: 1rem; color: var(--ink-2); font-size: 0.95rem; margin-bottom: 9vh; flex-wrap: wrap; }
+  .who span:first-child { color: var(--ink); font-weight: 500; }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; }
+  h1 { font-size: clamp(2.4rem, 5.2vw, 4.4rem); line-height: 0.98; letter-spacing: -0.025em; font-weight: 600; margin: 0 0 1.4rem; max-width: 12ch; }
+  .lede { font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.45; color: var(--ink-2); margin: 0 0 1rem; max-width: 46ch; }
+  .lede + .lede { color: var(--ink); }
+
+  .poster { background: #151412; border: 12px solid #1f1d1a; outline: 2px solid var(--walnut); box-shadow: 0 30px 50px -20px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.03); padding: 22px 22px 16px; margin: 0; }
+  .poster svg { width: 100%; height: auto; display: block; }
+  .poster figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 14px; font-size: 0.8rem; color: var(--ink-3); line-height: 1.3; }
+  .poster figcaption b { color: var(--ink-2); font-weight: 500; }
+
+  .shelf { height: 5px; background: linear-gradient(180deg, var(--walnut-hi), var(--walnut)); box-shadow: 0 6px 14px rgba(0,0,0,0.5); margin: 8vh 0 2.2rem; border: 0; }
+  h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.12; letter-spacing: -0.015em; font-weight: 600; margin: 0 0 0.8rem; max-width: 30ch; }
+  h3 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.4rem; color: var(--ink); }
+  p { margin: 0 0 1rem; max-width: var(--measure); }
+  .quiet { color: var(--ink-3); }
+  .when { color: var(--ink-3); font-size: 0.95rem; margin: -0.3rem 0 1.2rem; }
+
+  /* the two shelves of work */
+  .tier { margin-bottom: 3.5rem; }
+  .tier h2 { margin-bottom: 0.2rem; }
+  .tier > p { color: var(--ink-3); margin-bottom: 0.6rem; }
+  .index { list-style: none; padding: 0; margin: 0; max-width: 46rem; }
+  .index li { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .index li:last-child { border-bottom: 0; }
+  .index .t { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
+  .index .t a { color: var(--ink); text-decoration: none; }
+  .index .t a:hover { color: var(--green); }
+  .index .d { color: var(--ink-2); margin-top: 0.15rem; }
+  .index .k { color: var(--ink-3); font-size: 0.9rem; margin-top: 0.25rem; display: flex; gap: 0.5rem 1.4rem; flex-wrap: wrap; }
+  .index .k a { color: var(--green); }
+
+  /* artifact pages */
+  .plate { border-collapse: collapse; margin: 1.4rem 0 2rem; max-width: 46rem; width: 100%; border-top: 3px solid var(--walnut); }
+  .plate th, .plate td { text-align: left; padding: 0.55rem 0.8rem 0.55rem 0; vertical-align: top; border-bottom: 1px solid rgba(255,255,255,0.07); font-weight: 400; }
+  .plate th { color: var(--ink-3); width: 38%; }
+  .plate td { color: var(--ink); }
+  .proved { border-left: 3px solid var(--green); padding: 0.2rem 0 0.2rem 1.1rem; margin: 1.2rem 0 1.6rem; max-width: var(--measure); }
+  .proved p { color: var(--ink-2); margin: 0; }
+  .proved p + p { margin-top: 0.6rem; }
+  .forks { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
+  .forks li { padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .forks li:last-child { border-bottom: 0; }
+  .forks b { font-weight: 600; display: block; margin-bottom: 0.2rem; }
+  .forks span { color: var(--ink-2); }
+  .shown { list-style: none; padding: 0; margin: 0; max-width: 46rem; }
+  .shown li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .shown li span:last-child { color: var(--ink-3); white-space: nowrap; }
+  .shown li.never span:last-child { color: var(--green); }
+  .shown a { color: var(--ink); }
+
+  /* the node map: the whole graph, shape first, full size a click away */
+  .map { margin: 1.4rem 0 2rem; }
+  .map a { display: block; border: 1px solid rgba(255,255,255,0.08); background: #151412; padding: 6px; }
+  .map img { display: block; width: 100%; height: auto; }
+  .map figcaption { color: var(--ink-3); font-size: 0.9rem; margin-top: 0.6rem; max-width: var(--measure); }
+
+  footer { margin-top: 10vh; color: var(--ink-3); font-size: 0.95rem; position: relative; max-width: 46rem; padding-right: 110px; }
+  footer p { max-width: none; }
+  footer a { color: var(--ink-2); }
+  .plant { position: absolute; right: 0; bottom: 0; width: 92px; height: auto; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; align-items: start; }
+    .poster { max-width: 520px; }
+  }
+  @media (max-width: 600px) {
+    :root { --slat-w: 18px; }
+    html { font-size: 16px; }
+    .page { padding: 5vh 18px 8vh 22px; }
+    .who { margin-bottom: 6vh; }
+    .poster { border-width: 8px; padding: 14px 14px 10px; }
+    footer { padding-right: 0; }
+    .plant { display: none; }
+    .plate th { width: 44%; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .index .t a { transition: color 120ms ease; }
+  }
+  @media print {
+    html, body { background: #fff; color: #111; }
+    .slats, .plant { display: none; }
+    main { margin-left: 0; }
+    .page { padding: 0; max-width: none; }
+    a { color: #111; text-decoration: none; }
+    .index .k a::after, footer a::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; }
+    .poster, .map a { border-color: #999; outline: none; box-shadow: none; background: #fff; }
+    .shelf { background: #999; box-shadow: none; }
+    .proved { border-left-color: #555; }
+    h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="slats" aria-hidden="true"></div>
+<main><div class="page">
+
+  <div class="who">
+    <span>Brandon Robinson</span>
+    <span>United States, open to relocation. <a href="#contact">Contact</a></span>
+  </div>
+
+  <section class="hero">
+    <div>
+      <h1>Systems I built, and what they proved.</h1>
+      <p class="lede">The systems on this page run on n8n, Python and TypeScript with Postgres behind them: a 92-node production pipeline delivered to a client, an outbound program measured until its own numbers ended it, and the tools my own work runs on. I specify them, build the workflow graphs myself, direct the code, run them in production, and shut them down when the evidence says so.</p>
+      <p class="lede">I am looking for AI operations, implementation and program leadership roles: the person who puts a system into production and makes a team's use of it real.</p>
+    </div>
+
+    <figure class="poster">
+      <svg viewBox="0 0 520 400" role="img" aria-labelledby="poster-t poster-d">
+        <title id="poster-t">Applicant pipeline schematic</title>
+        <desc id="poster-d">Three scheduled chains: intake, outreach and replies. A person approves every name before outreach. Every chain writes to one shared log.</desc>
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker>
+        </defs>
+        <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="14.5" fill="#ece5d8">
+          <text x="0" y="46" fill="#9a9186" font-size="12">every hour</text>
+          <text x="0" y="176" fill="#9a9186" font-size="12">on the hour</text>
+          <text x="0" y="306" fill="#9a9186" font-size="12">every 15 min</text>
+          <rect x="0" y="58" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="54" y="83" text-anchor="middle">intake</text>
+          <rect x="136" y="58" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="190" y="83" text-anchor="middle">dedupe</text>
+          <rect x="272" y="58" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="326" y="83" text-anchor="middle">score, route</text>
+          <line x1="108" y1="78" x2="134" y2="78" stroke="#9a9186" stroke-width="1.2" marker-end="url(#arr)"/>
+          <line x1="244" y1="78" x2="270" y2="78" stroke="#9a9186" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="272" y="118" width="108" height="40" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/><text x="326" y="143" text-anchor="middle" fill="#ece5d8">a person approves</text>
+          <line x1="326" y1="98" x2="326" y2="116" stroke="#6b9a63" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="0" y="188" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="54" y="213" text-anchor="middle">approved only</text>
+          <rect x="136" y="188" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="190" y="213" text-anchor="middle">daily cap, pacing</text>
+          <rect x="272" y="188" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="326" y="213" text-anchor="middle">send, keep thread</text>
+          <line x1="108" y1="208" x2="134" y2="208" stroke="#9a9186" stroke-width="1.2" marker-end="url(#arr)"/>
+          <line x1="244" y1="208" x2="270" y2="208" stroke="#9a9186" stroke-width="1.2" marker-end="url(#arr)"/>
+          <path d="M326 158 L326 172 L54 172 L54 186" fill="none" stroke="#6b9a63" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="0" y="318" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="54" y="343" text-anchor="middle">new replies</text>
+          <rect x="136" y="318" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="190" y="343" text-anchor="middle">match to person</text>
+          <rect x="272" y="318" width="108" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="326" y="343" text-anchor="middle">classify, update</text>
+          <line x1="108" y1="338" x2="134" y2="338" stroke="#9a9186" stroke-width="1.2" marker-end="url(#arr)"/>
+          <line x1="244" y1="338" x2="270" y2="338" stroke="#9a9186" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="424" y="58" width="96" height="300" fill="none" stroke="#7b4f2c" stroke-width="2"/>
+          <text x="472" y="200" text-anchor="middle" fill="#b3aa9b" transform="rotate(-90 472 200)">one log of everything</text>
+          <line x1="380" y1="78" x2="422" y2="78" stroke="#9a9186" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="380" y1="138" x2="422" y2="138" stroke="#9a9186" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="380" y1="208" x2="422" y2="208" stroke="#9a9186" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="380" y1="338" x2="422" y2="338" stroke="#9a9186" stroke-width="1" stroke-dasharray="3 3"/>
+        </g>
+      </svg>
+      <figcaption><span><b>Applicant pipeline.</b> Three chains, one gate, one log.</span><span>92 nodes, April to July 2026</span></figcaption>
+    </figure>
+  </section>
+
+  <hr class="shelf">
+
+  <section class="tier">
+    <h2>Built and run in production</h2>
+    <p>Full write-ups. Each one ends with what happened after delivery.</p>
+    <ul class="index">
+      <li>
+        <div class="t"><a href="#pipeline">Applicant intake and re-engagement pipeline</a></div>
+        <div class="d">Three scheduled chains and an error subworkflow, delivered to a regional distributor and run by their team.</div>
+        <div class="k"><span>Client production, April to July 2026</span><span>n8n, Google Sheets, Gmail, Postgres</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="#outbound">An outbound email program, measured until its own numbers ended it</a></div>
+        <div class="d">Built with the compliance and audit chain in from the start, then shut down on that chain's evidence instead of run on sunk cost.</div>
+        <div class="k"><span>My practice, April to August 2026</span><span>n8n, Apify, NeverBounce, Google Sheets</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="#harness">AI output evaluation harness</a></div>
+        <div class="d">A deterministic path and two local language models scored on the same public cases, with an attestation gate before any number ships.</div>
+        <div class="k"><span>My practice, June 2026</span><span>Python, standard library only, local models</span><a href="https://github.com/zohto/eval-harness">code</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="tier">
+    <h2>Systems my own work runs on</h2>
+    <p>One line each. The code is the write-up.</p>
+    <ul class="index">
+      <li>
+        <div class="t"><a href="https://github.com/zohto/governance-query-mcp">Governance query server</a></div>
+        <div class="d">A read-only MCP server that turns two operational Notion databases, an audit trail and an action queue, into four native query tools for AI coding clients, with enum values validated against the live schema. Specified by me, code written under my direction, run by me daily.</div>
+        <div class="k"><span>Live since May 2026; hosted May to September, local since</span><span>Node.js, TypeScript</span><a href="https://github.com/zohto/governance-query-mcp">code</a></div>
+      </li>
+      <li>
+        <div class="t"><a href="#expenses">Personal financial operations pipeline</a></div>
+        <div class="d">Six workflows that read receipt email and bank statements into a budget, idempotent by design, with a four-state review that routes only the records needing a decision to me. Specified and directed by me.</div>
+        <div class="k"><span>Running since May 2026; 93 transactions into 19 categories, May to August 2026</span><span>n8n, Claude, Notion</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="https://github.com/zohto/job-board-scan">Job market scan</a></div>
+        <div class="d">A nightly read of employer boards straight from their applicant-tracking APIs, with a requirements gate block per role. Built under my direction; the scan I run my own search on.</div>
+        <div class="k"><span>Running since September 2026</span><span>Python, scheduled</span><a href="https://github.com/zohto/job-board-scan">code</a></div>
+      </li>
+      <li>
+        <div class="t"><a href="https://github.com/zohto/agent-work-queue">A work queue for AI coding agents</a></div>
+        <div class="d">Sessions claim work from a board, stop for a person's approval before executing, and write blockers to the record the moment they hit one. Seven skills and a template, in daily use.</div>
+        <div class="k"><span>Since July 2026</span><span>Claude Code, Notion</span><a href="https://github.com/zohto/agent-work-queue">code</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="shelf">
+
+  <article id="pipeline">
+    <h2>Applicant intake and re-engagement pipeline</h2>
+    <p class="when">Client production, April to July 2026. Built by me in n8n; the client's team operated it.</p>
+    <p>A regional distributor was losing hires between "applied" and "first contact". The gap showed up in their own sheet: rows arriving faster than the contacted column filled in, and follow-up depending on who had time that day. I built the system that closes that gap: three independently scheduled chains that take raw applicant rows, deduplicate and score them, queue the qualified ones for a person to approve, send the re-engagement email, and match every reply back to its candidate.</p>
+
+    <table class="plate">
+      <tr><th scope="row">Applicants processed</th><td>10,580+</td></tr>
+      <tr><th scope="row">Classification coverage</th><td>100%, with 71% filtered out before a person saw them</td></tr>
+      <tr><th scope="row">Nodes in the final graph</th><td>92, across three chains and an error subworkflow</td></tr>
+      <tr><th scope="row">Where it ran</th><td>n8n on a hardened Linux server, Postgres behind it, Google Sheets as the operator's desk</td></tr>
+      <tr><th scope="row">What decides</th><td>Keyword scores and hard pre-gates. No model makes the call.</td></tr>
+    </table>
+
+    <h3>How it works</h3>
+    <p>Every routing decision, every duplicate, every send and every halt lands in one log sheet, so the question "what did the system do with this applicant" always has an answer. Sends are capped per day and paced three minutes apart. A classified failure halts the chain and writes a halt entry instead of cascading.</p>
+
+    <figure class="map">
+      <a href="pipeline-map.svg" target="_blank" rel="noopener"><img src="pipeline-map.svg" alt="The full node map of the production workflow: 92 nodes in three horizontal chains with an error subworkflow, drawn from the workflow export with node names only." width="6492" height="1762" loading="lazy"></a>
+      <figcaption>Every node in the graph as it ran, drawn from the workflow export. Names only; no parameters, data or credentials. Open it to read the nodes.</figcaption>
+    </figure>
+
+    <h3>Decisions I'd defend</h3>
+    <ul class="forks">
+      <li><b>Keyword scores decide who gets contacted, not a language model.</b><span>Every decision writes its reason to the log and gives the same answer next month. An operator can read the rule and move a threshold. A model would have added a token cost and a second thing to audit on a chain that emails real people. Two months later my evaluation harness measured the same trade-off on public data: the deterministic path within 0.8 points of the best local model at zero token cost.</span></li>
+      <li><b>The operator's desk is a spreadsheet.</b><span>The client's team already worked in Sheets, so approval is flipping one cell and nobody learns a new tool. The cost is weaker validation and no locking, so the pipeline re-reads the sheet on every run and never trusts a value it wrote last time.</span></li>
+      <li><b>A classified failure halts the chain instead of retrying.</b><span>An email cannot be unsent, and a retry loop is the one way to contact someone twice. A halt writes a log entry and waits for a person. The daily cap is read from the log itself, so a restart cannot reset it.</span></li>
+    </ul>
+
+    <h3>What it proved</h3>
+    <div class="proved">
+      <p>The client's team ran the approval gate themselves and released 29 names for outreach, the way it was designed to be run. They used it once, on a stale list, and concluded email did not work for them. It did not become part of how they hire.</p>
+      <p>Both halves are true, and the second one changed how I scope and hand off every build since.</p>
+    </div>
+    <p class="quiet">The number that matters here is not throughput. A three-day silent failure was found by reading the destination sheet, not the run status. The run status said "success".</p>
+
+    <h3>What is shown here, and what is not</h3>
+    <ul class="shown">
+      <li><span><a href="pipeline-map.svg">Node map</a>, drawn from the export, names only</span><span>shown</span></li>
+      <li><span>Log sheet schema and one redacted incident timeline</span><span>shown</span></li>
+      <li class="never"><span>Client name, applicant data, sheet, mailbox, server</span><span>never</span></li>
+    </ul>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="outbound">
+    <h2>An outbound email program, measured until its own numbers ended it</h2>
+    <p class="when">My practice, April to August 2026. Full stop on 9 August 2026.</p>
+    <p>The practice ran on outbound: find small firms losing revenue to a broken intake, reach them with a credible offer. I built the sending system with the compliance and audit chain in from the first send, because the one thing an outbound program cannot recover from is its own domain reputation. Then the chain did its job in the other direction.</p>
+
+    <table class="plate">
+      <tr><th scope="row">Real sends, counted at the mailbox</th><td>240</td></tr>
+      <tr><th scope="row">Genuine replies</th><td>0</td></tr>
+      <tr><th scope="row">Sent bodies carrying a postal address and an opt-out</th><td>238 of 238 verified</td></tr>
+      <tr><th scope="row">Authentication in a real DMARC aggregate</th><td>DKIM 29 of 29, SPF 29 of 29</td></tr>
+      <tr><th scope="row">Sourcing pipeline behind it</th><td>Five workflows, 87 nodes, verified against the running instance</td></tr>
+    </table>
+
+    <h3>How it works</h3>
+    <p>Every send-authorizing parameter lives in one configuration sheet: the kill switch, the send window, the per-run caps, the bounce and complaint thresholds. A suppression ledger is checked before every send, and opt-outs are captured from replies twice a day. Every send writes a fourteen-column audit row, and if that write fails the batch halts and the row goes to an inbox instead of being lost.</p>
+
+    <h3>Decisions I'd defend</h3>
+    <ul class="forks">
+      <li><b>The kill switch is a cell in a sheet, not a line in a workflow.</b><span>Send policy has to be changeable by the person accountable for it without an edit to running code. A false value in one cell stops every run. It was flipped to false when the evidence came in.</span></li>
+      <li><b>Compliance is built in, not checked after.</b><span>The footer address and opt-out are resolved at one chokepoint the send cannot bypass, which is why 238 of 238 verified bodies carried them. It also meant I could rule out compliance as the cause of silence in one read.</span></li>
+      <li><b>Stop on the evidence.</b><span>240 sends and no genuine reply is a signal, and the options were warm more domains or find out why. Authentication, blacklisting, domain age and volume were each eliminated from the system's own records. What remained was content filtering, confirmed by the provider's own notice. The program was ended on that finding rather than kept alive on what it had cost.</span></li>
+    </ul>
+
+    <h3>What it proved</h3>
+    <div class="proved">
+      <p>Commercially zero, and provably so. The sourcing pipeline did its job; the outbound program it fed did not, and its own instrumentation said so clearly enough to act on.</p>
+      <p>Ending a program you built, on its own data, three weeks after building it, is the part of this I would want a hiring manager to notice.</p>
+    </div>
+
+    <h3>What is shown here, and what is not</h3>
+    <ul class="shown">
+      <li><span>Gate design, audit row schema, the shutdown reasoning</span><span>shown</span></li>
+      <li class="never"><span>Recipients, sender domains, the suppression ledger, any message body</span><span>never</span></li>
+    </ul>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="harness">
+    <h2>AI output evaluation harness</h2>
+    <p class="when">My practice, June 2026. Scoped and directed by me; the code was written under my direction.</p>
+    <p>A tool for a question most evaluation tooling assumes away: is the language model the right tool for this classification task, or does a cheaper, auditable deterministic method do the job? The harness runs both over the same labelled cases, scores each against the gold labels, routes low-confidence cases to human review, and emits a comparison report a reader can check.</p>
+
+    <table class="plate">
+      <tr><th scope="row">Attestation</th><td>Passed on 11 known-answer checks before any metric was allowed out</td></tr>
+      <tr><th scope="row">Test set</th><td>120 public AG News cases; no client data</td></tr>
+      <tr><th scope="row">Deterministic path</th><td>Embedding nearest-neighbour, 80.0% at zero token cost</td></tr>
+      <tr><th scope="row">Language models, local</th><td>mistral 80.8%, llama3 79.2%</td></tr>
+      <tr><th scope="row">Dependencies</th><td>None beyond the Python standard library and a local model server</td></tr>
+    </table>
+
+    <h3>Decisions I'd defend</h3>
+    <ul class="forks">
+      <li><b>No metric ships until the scorer proves itself on hand-computed answers.</b><span>The only real risk in an offline evaluation tool is a confident wrong report. The attestation suite is that risk's gate, and it is the reason the tool is Tier 1 rather than something heavier.</span></li>
+      <li><b>Zero dependencies, local models.</b><span>Anyone can run it on a laptop with nothing to install, and every report carries the dataset hash, the model digests and the seed, so a number can be reproduced instead of trusted.</span></li>
+      <li><b>Public data only.</b><span>The pattern it generalizes came from a client pipeline; the cases it runs on come from a public benchmark. The client's data never enters the repository.</span></li>
+    </ul>
+
+    <h3>What it proved</h3>
+    <div class="proved">
+      <p>The deterministic path came within 0.8 points of the best local model at zero token cost. That answers whether a model was warranted for the task rather than assuming it was.</p>
+      <p>It was built to portfolio grade and never shipped to a user. That is the honest state of it.</p>
+    </div>
+
+    <h3>What is shown here, and what is not</h3>
+    <ul class="shown">
+      <li><span><a href="https://github.com/zohto/eval-harness">The repository</a>, design notes and a sample report</span><span>shown</span></li>
+      <li class="never"><span>The client pipeline's data, referenced as anonymized narrative only</span><span>never</span></li>
+    </ul>
+  </article>
+
+  <hr class="shelf">
+
+  <section id="expenses">
+    <h2>Personal financial operations pipeline</h2>
+    <p class="when">Personal, running since May 2026. Specified and directed by me.</p>
+    <p>Six workflows on self-hosted n8n: receipt email is read by a language model into structured rows, bank statements are read by a vision model, and a daily job links every row to its budget line. Idempotent by design, so re-running a month writes nothing twice. A four-state review routes only the records that need a decision to me; I do not look at every record, and the design does not ask me to. Between May and August 2026 it wrote 93 transactions into a 19-category database. Nothing from it is shown here beyond the design; it is my money.</p>
+  </section>
+
+  <footer id="contact">
+    <p>Brandon Robinson. <a href="mailto:zohto.ai@gmail.com">zohto.ai@gmail.com</a>, <a href="https://www.linkedin.com/in/brandon-robinson-ai">LinkedIn</a>, <a href="https://github.com/zohto">GitHub</a>.</p>
+    <p>The production work above was built inside BREALLE, the automation practice I run. This page is my own portfolio, not the practice's site.</p>
+    <svg class="plant" viewBox="0 0 92 120" aria-hidden="true">
+      <g fill="#2f4a33">
+        <path d="M46 118 C40 90 38 60 44 18 C48 40 50 80 48 118 Z"/>
+        <path d="M34 118 C26 96 22 74 30 40 C36 62 38 92 38 118 Z"/>
+        <path d="M58 118 C64 94 68 70 62 34 C56 58 54 92 54 118 Z"/>
+        <path d="M24 118 C16 104 12 88 18 66 C24 84 26 102 26 118 Z"/>
+        <path d="M70 118 C76 102 80 84 74 60 C68 80 66 102 66 118 Z"/>
+      </g>
+      <g fill="#6b9a63" opacity="0.55">
+        <path d="M45 100 C43 80 43 55 45 30 C46 55 46 80 45 100 Z"/>
+        <path d="M61 100 C62 84 63 70 61 46 C59 70 59 84 61 100 Z"/>
+      </g>
+      <rect x="8" y="112" width="76" height="8" fill="#3a2616"/>
+    </svg>
+  </footer>
+
+</div></main>
+</body>
+</html>
