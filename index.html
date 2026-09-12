@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brandon Robinson: systems I built, and what they proved</title>
+<title>Brandon Robinson: AI operations and automation</title>
 <meta name="description" content="Production automation and evaluation systems on n8n, Python and TypeScript, written up honestly: what each one is, how it works, the decisions behind it, and what happened after.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Brandon Robinson: systems I built, and what they proved">
@@ -212,7 +212,7 @@
   <hr class="shelf">
 
   <section class="tier">
-    <h2>Built and run in production</h2>
+    <h2>Written up in full</h2>
     <p>Full write-ups. Each one ends with what happened after delivery.</p>
     <ul class="index">
       <li>
@@ -285,7 +285,7 @@
 
     <h3>Decisions I'd defend</h3>
     <ul class="forks">
-      <li><b>Keyword scores decide who gets contacted, not a language model.</b><span>Every decision writes its reason to the log and gives the same answer next month. An operator can read the rule and move a threshold. A model would have added a token cost and a second thing to audit on a chain that emails real people. Two months later my evaluation harness measured the same trade-off on public data: the deterministic path within 0.8 points of the best local model at zero token cost.</span></li>
+      <li><b>Keyword scores decide who gets contacted, not a language model.</b><span>Every decision writes its reason to the log and gives the same answer next month. An operator can read the rule and move a threshold. A model would have added a token cost and a second thing to audit on a chain that emails real people. Two months later my evaluation harness measured a related question on public data: the deterministic path within 0.8 points of the best local model at zero token cost.</span></li>
       <li><b>The operator's desk is a spreadsheet.</b><span>The client's team already worked in Sheets, so approval is flipping one cell and nobody learns a new tool. The cost is weaker validation and no locking, so the pipeline re-reads the sheet on every run and never trusts a value it wrote last time.</span></li>
       <li><b>A classified failure halts the chain instead of retrying.</b><span>An email cannot be unsent, and a retry loop is the one way to contact someone twice. A halt writes a log entry and waits for a person. The daily cap is read from the log itself, so a restart cannot reset it.</span></li>
     </ul>
