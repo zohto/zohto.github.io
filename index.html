@@ -247,13 +247,13 @@
     <ul class="index">
       <li>
         <div class="t"><a href="https://github.com/zohto/governance-query-mcp">Governance query server</a></div>
-        <div class="d">A read-only MCP server that turns two operational Notion databases, an audit trail and an action queue, into four native query tools for AI coding clients, with enum values validated against the live schema. Specified by me, code written under my direction, run by me daily.</div>
+        <div class="d">An MCP server that exposes only read tools over two operational Notion databases, an audit trail and an action queue, as four native query tools for AI coding clients, with enum values validated against the live schema. Specified by me, code written under my direction, run by me daily.</div>
         <div class="k"><span>Live since May 2026; hosted May to September, local since</span><span>Node.js, TypeScript</span><a href="https://github.com/zohto/governance-query-mcp">code</a></div>
       </li>
       <li>
         <div class="t"><a href="#expenses">Personal financial operations pipeline</a></div>
-        <div class="d">Six workflows that read receipt email and bank statements into a budget, idempotent by design, with a four-state review that routes only the records needing a decision to me. Specified and directed by me.</div>
-        <div class="k"><span>Running since May 2026; 93 transactions into 19 categories, May to August 2026</span><span>n8n, Claude, Notion</span></div>
+        <div class="d">Six workflows that read receipt email and bank statements into a budget, deduplicated before every write, with a four-state review that routes only the records needing a decision to me. Specified and directed by me.</div>
+        <div class="k"><span>Running since May 2026</span><span>n8n, Claude, Notion</span></div>
       </li>
       <li>
         <div class="t">A work queue for AI coding agents</div>
@@ -424,7 +424,7 @@
     <figure class="flow">
       <svg viewBox="0 0 400 344" role="img" aria-labelledby="ax-t ax-d">
         <title id="ax-t">Axis Core operating model</title>
-        <desc id="ax-d">Daytime work flows from my decision to a planning session that writes a scoped work order, then to a coding session that does it and writes the outcome back. Every night Aegis writes a morning brief, Kestrel runs night tasks after it, and Warden checks the record against the systems. A private reflection agent runs on its own. Work orders and decisions land in one record, and every scheduled run pings an external dead-man's switch.</desc>
+        <desc id="ax-d">Daytime work flows from my decision to a planning session that writes a scoped work order, then to a coding session that does it and writes the outcome back. Every night Aegis writes a morning brief, Kestrel runs night tasks after it, and Warden checks the record against the systems. A private reflection agent runs on its own. Work orders and decisions land in one record, and every scheduled agent run pings an external dead-man's switch.</desc>
         <defs><marker id="ax-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <text x="0" y="13" fill="#9a9186" font-size="11" letter-spacing="0.08em">DAYTIME WORK</text>
@@ -443,7 +443,7 @@
           <line x1="90" y1="204" x2="90" y2="262" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ax-arr)"/>
           <path d="M210 164 L200 164 L200 262" fill="none" stroke="#9a9186" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#ax-arr)"/>
           <rect x="0" y="264" width="400" height="40" fill="none" stroke="#7b4f2c" stroke-width="2"/><text x="200" y="289" text-anchor="middle" fill="#b3aa9b">One record: work orders and decisions</text>
-          <text x="200" y="334" text-anchor="middle" fill="#6b9a63" font-size="12">Every scheduled run pings an external dead-man's switch</text>
+          <text x="200" y="334" text-anchor="middle" fill="#6b9a63" font-size="12">Every scheduled agent run pings an external dead-man's switch</text>
         </g>
       </svg>
       <figcaption>Who does what. The dashed line is Warden comparing the record with what the systems show.</figcaption>
@@ -477,17 +477,17 @@
     <h2>Aegis: the morning brief</h2>
     <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
     <p class="problem">Morning triage across mail, calendar, open tasks and system health was mine to do by hand, every day.</p>
-    <p>Every night Aegis reads my mail, calendar, open action items and the health of my other systems, and writes one brief before I start, led by what to act on today. Since October 2026 it also sorts new mail as it arrives, every five minutes, and messages me privately when something needs me now. It labels mail and clears noise out of the inbox, and it never deletes. It can undo its own labels and keeps my own tracking records up to date. It sends nothing to anyone but me.</p>
+    <p>Every night Aegis reads my mail, calendar, open action items and the health of my other systems, and writes one brief before I start, led by what to act on today. Since October 2026 it also sorts new mail as it arrives and messages me privately when something needs me now. It labels mail and clears noise out of the inbox, and it is not allowed to delete. It can undo its own labels and keeps my own tracking records up to date. It is not allowed to send to anyone but me.</p>
 
     <figure class="flow">
       <svg viewBox="0 0 400 352" role="img" aria-labelledby="ae-t ae-d">
         <title id="ae-t">Aegis boundaries</title>
-        <desc id="ae-d">Trigger: every night before I start, and new mail every five minutes. Decides: what needs me today, and which mail is noise. Allowed to: write one morning brief, label mail or undo its own labels, clear noise out of the inbox, update my own tracking records, message me privately. Never: delete mail, send to anyone but me, or brief from stale input.</desc>
+        <desc id="ae-d">Trigger: every night before I start, and new mail as it arrives. Decides: what needs me today, and which mail is noise. Allowed to: write one morning brief, label mail or undo its own labels, clear noise out of the inbox, update my own tracking records, message me privately. Never: delete mail, or send to anyone but me.</desc>
         <defs><marker id="ae-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
           <text x="12" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">TRIGGER</text>
-          <text x="12" y="44">Every night,</text><text x="12" y="61">before I start</text><text x="12" y="85">New mail, every</text><text x="12" y="102">five minutes</text>
+          <text x="12" y="44">Every night,</text><text x="12" y="61">before I start</text><text x="12" y="85">New mail, as</text><text x="12" y="102">it arrives</text>
           <line x1="190" y1="64" x2="208" y2="64" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ae-arr)"/>
           <rect x="210" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
           <text x="222" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">DECIDES</text>
@@ -498,7 +498,7 @@
           <text x="12" y="196">write one morning brief</text><text x="12" y="213">label mail, or undo</text><text x="12" y="230">its own labels</text><text x="12" y="247">clear noise out</text><text x="12" y="264">of the inbox</text><text x="12" y="281">update my own</text><text x="12" y="298">tracking records</text><text x="12" y="315">message me privately</text>
           <rect x="210" y="152" width="190" height="196" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
           <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
-          <text x="222" y="196">Delete mail</text><text x="222" y="213">Send to anyone but me</text><text x="222" y="230">Brief from stale input</text>
+          <text x="222" y="196">Delete mail</text><text x="222" y="213">Send to anyone but me</text>
         </g>
       </svg>
       <figcaption>Trigger, decision, what it may do, and what it never does.</figcaption>
@@ -511,8 +511,8 @@
 
     <h3>What broke, and the fix</h3>
     <div class="proved">
-      <p>In the first test batch for mail sorting, one account-security notice was sorted as noise. The safety check was widened to protect account-security mail before the full backlog ran, and in that run nothing left the inbox.</p>
-      <p>The same honesty applies now. Since October Aegis labels and moves mail, so it is no longer described as read-only anywhere. It is report-and-sort: it never deletes, and it messages only me.</p>
+      <p>In the first test batch for mail sorting, one account-security notice was sorted as noise. The safety check was widened to protect that kind of mail before the full backlog ran, and in that run nothing left the inbox.</p>
+      <p>The same honesty applies now. Since October Aegis labels and moves mail, so it is no longer described as read-only anywhere. It is report-and-sort: it is not allowed to delete, and it messages only me.</p>
     </div>
     <p class="quiet">My part: I specified what it reads, what it may change and what it must never do, and approved each widening of what it may do.</p>
   </article>
@@ -523,17 +523,17 @@
     <h2>Kestrel: the night dispatcher</h2>
     <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
     <p class="problem">Some document and research work is specified well enough to run overnight, if the run can be trusted unattended.</p>
-    <p>Kestrel is a night dispatcher that handles documents and research for specific night tasks. It starts only once Aegis has finished. The night runs as five staged model sessions: lighter stages on a smaller model, judgement and document builds on a larger one. It researches the open web through parallel workers that save each source page verbatim. It leaves a queue for my review in the morning.</p>
+    <p>Kestrel is a night dispatcher that handles documents and research for specific night tasks. It runs after Aegis's slot each night. The night runs as five staged model sessions: lighter stages on a smaller model, judgement and document builds on a larger one. It researches the open web through parallel workers that save each source page verbatim. It leaves a queue for my review in the morning.</p>
 
     <figure class="flow">
       <svg viewBox="0 0 400 284" role="img" aria-labelledby="ke-t ke-d">
         <title id="ke-t">Kestrel boundaries</title>
-        <desc id="ke-d">Trigger: nightly, once the morning brief agent has finished. Decides: which night tasks are ready to run, and what waits for me in the morning. Allowed to: research the open web, build documents, queue them for my review, email me the queue. Never: contact anyone but me, or submit or publish anything.</desc>
+        <desc id="ke-d">Trigger: nightly, after the morning brief agent. Decides: which night tasks are ready to run, and what waits for me in the morning. Allowed to: research the open web, build documents, queue them for my review, email me the queue. Never: contact anyone but me, or submit or publish anything.</desc>
         <defs><marker id="ke-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
           <text x="12" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">TRIGGER</text>
-          <text x="12" y="44">Nightly, once the</text><text x="12" y="61">morning brief agent</text><text x="12" y="78">has finished</text>
+          <text x="12" y="44">Nightly, after the</text><text x="12" y="61">morning brief agent</text>
           <line x1="190" y1="64" x2="208" y2="64" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ke-arr)"/>
           <rect x="210" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
           <text x="222" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">DECIDES</text>
@@ -570,12 +570,12 @@
     <h2>Warden: the record checker</h2>
     <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
     <p class="problem">A written record of how systems behave drifts from how they actually behave, and nothing announces it.</p>
-    <p>Every morning after the night agents finish, Warden re-derives facts about my systems from the systems themselves: scheduled tasks, run logs, workflow flags, code constants, database counts and page dates. Then it compares each one with what the written record asserts. It has no language model. It acts in three tiers: it corrects only counts it derives itself, logging the old and new value; it proposes prose changes and waits for my approval; and on code and prompts it only reports.</p>
+    <p>Every morning after the night agents finish, Warden re-derives facts about my systems from the systems themselves: scheduled tasks, run logs, workflow flags, code constants, database counts and page dates. Then it compares each one with what the written record asserts. It has no language model. It acts in three tiers: it corrects only counts it derives itself, logging the old and new value; it proposes prose changes and waits for my approval; and everything else it only reports.</p>
 
     <figure class="flow">
       <svg viewBox="0 0 400 284" role="img" aria-labelledby="wa-t wa-d">
         <title id="wa-t">Warden boundaries</title>
-        <desc id="wa-d">Trigger: every morning, after the night agents finish. Decides: does the written record match what the systems actually show. Allowed to: correct counts it derives, logging old and new; propose prose fixes for my approval; report everything else. Never: change code or prompts, or apply a prose change without my approval.</desc>
+        <desc id="wa-d">Trigger: every morning, after the night agents finish. Decides: does the written record match what the systems actually show. Allowed to: correct counts it derives, logging old and new; propose prose fixes for my approval; report everything else. Never: apply a prose change without my approval.</desc>
         <defs><marker id="wa-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
@@ -591,7 +591,7 @@
           <text x="12" y="196">correct counts it derives,</text><text x="12" y="213">logging old and new</text><text x="12" y="230">propose prose fixes</text><text x="12" y="247">for my approval</text><text x="12" y="264">report everything else</text>
           <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
           <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
-          <text x="222" y="196">Change code or prompts</text><text x="222" y="213">Apply a prose change</text><text x="222" y="230">without my approval</text>
+          <text x="222" y="196">Apply a prose change</text><text x="222" y="213">without my approval</text>
         </g>
       </svg>
       <figcaption>A canary fact with a deliberately inverted check must fail every run; if it ever passes, both write stages are skipped.</figcaption>
@@ -606,7 +606,7 @@
 
     <h3>What broke, and the fix</h3>
     <div class="proved">
-      <p>Another agent changed the shape of a file Warden reads: a bare list became an object carrying a count. One unreadable fact out of 59 then stopped every later step of the run, including four corrections, the run record and the status message. Now a partial run still raises an alarm, then runs every step, acting fact by fact and never writing or judging a fact whose own check did not read. File readers accept both shapes and treat a count that does not match as a truncated read. A file passed between two agents is an interface, not just a file.</p>
+      <p>Another agent changed the shape of a file Warden reads: a bare list became an object carrying a count. One unreadable fact out of 59 then stopped every later step of the run, including four corrections, the run record and the status message. Now a partial run still raises an alarm, then runs every remaining step, acting fact by fact. File readers accept both shapes and treat a count that does not match as a truncated read. A file passed between two agents is an interface, not just a file.</p>
       <p>Earlier, its write check asked whether the new text was present and the old text gone. That reports a correct edit that quotes the text it replaces as a failure. It now compares what it reads back with the exact text it sent.</p>
     </div>
     <p class="quiet">My part: I specified the fact base, the three tiers and the proof gate, and I approve or decline every prose change it proposes.</p>
@@ -665,7 +665,7 @@
   <section id="expenses">
     <h2>Personal financial operations pipeline</h2>
     <p class="when">Personal, running since May 2026. Specified and directed by me.</p>
-    <p>Six workflows on self-hosted n8n: receipt email is read by a language model into structured rows, bank statements are read by a vision model, and a daily job links every row to its budget line. Idempotent by design, so re-running a month writes nothing twice. A four-state review routes only the records that need a decision to me; I do not look at every record, and the design does not ask me to. Between May and August 2026 it wrote 93 transactions into a 19-category database. Nothing from it is shown here beyond the design; it is my money.</p>
+    <p>Six n8n workflows: receipt email is read by a language model into structured rows, bank statements are read by a vision model, and a daily job links every row to its budget line. Every row is checked against what is already stored before it is written, so re-running a month adds nothing twice. A four-state review routes only the records that need a decision to me; I do not look at every record, and the design does not ask me to. Nothing from it is shown here beyond the design; it is my money.</p>
   </section>
 
   <footer id="contact">
