@@ -231,7 +231,7 @@
       <li>
         <div class="t"><a href="#outbound">An outbound email program, measured until its own numbers ended it</a></div>
         <div class="d">Built with the compliance and audit chain in from the start, then shut down on that chain's evidence instead of run on sunk cost.</div>
-        <div class="k"><span>My practice, April to August 2026</span><span>n8n, Apify, NeverBounce, Google Sheets</span></div>
+        <div class="k"><span>My practice, April to August 2026</span><span>n8n, a data-sourcing service, an email-verification service, Google Sheets</span></div>
       </li>
       <li>
         <div class="t"><a href="#harness">AI output evaluation harness</a></div>
@@ -418,7 +418,7 @@
   <article id="hub" class="agent">
     <h2>Axis Core: how my agents are governed</h2>
     <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
-    <p class="problem">Agents that run unattended are only useful if every change to them, and every miss, is caught by something other than luck.</p>
+    <p class="problem">Agents that run unattended are only useful if every change to them, and every miss, is caught by something other than chance.</p>
     <p>Axis Core is the operating model behind my scheduled agents, four of which are below, and the AI coding sessions that build and maintain them. I decide. A planning session turns a decision into a written, scoped work order. A coding session claims the order, does the work and writes the outcome back onto it before it may close. The night agents run on a schedule and report to me each morning. Everything lands in one record.</p>
 
     <figure class="flow">
@@ -452,9 +452,7 @@
     <table class="plate">
       <tr><th scope="row">Work orders completed through it</th><td>248 since July 2026, as of 30 September 2026</td></tr>
       <tr><th scope="row">Decisions on the record</th><td>More than 1,000, as of 30 September 2026</td></tr>
-      <tr><th scope="row">A missed run</th><td>Alerts from an external dead-man's switch; one machine heartbeat is the only check that reaches my phone</td></tr>
-      <tr><th scope="row">Before a change to an agent goes live</th><td>Its test suites pass and its schedule matches one timing manifest; a major change also passes an end-to-end dry run</td></tr>
-      <tr><th scope="row">Writes to the record</th><td>Through one shared layer that refuses known failure shapes and checks each write against the exact text sent</td></tr>
+            <tr><th scope="row">Before a change to an agent goes live</th><td>Its test suites pass and its schedule matches one timing manifest; a major change also passes an end-to-end dry run</td></tr>
     </table>
 
     <h3>The agents</h3>
@@ -479,12 +477,12 @@
     <h2>Aegis: the morning brief</h2>
     <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
     <p class="problem">Morning triage across mail, calendar, open tasks and system health was mine to do by hand, every day.</p>
-    <p>Every night Aegis reads my mail, calendar, open action items and the health of my other systems, and writes one brief before I start, led by what to act on today. Since October 2026 it also sorts new mail as it arrives, every five minutes, and messages me privately when something needs me now. It labels mail and moves noise out of the inbox for senders I have approved, through a guarded labeler with no delete path. It can undo its own labels and keeps my own tracking records up to date. It sends nothing to anyone but me.</p>
+    <p>Every night Aegis reads my mail, calendar, open action items and the health of my other systems, and writes one brief before I start, led by what to act on today. Since October 2026 it also sorts new mail as it arrives, every five minutes, and messages me privately when something needs me now. It labels mail and clears noise out of the inbox, and it never deletes. It can undo its own labels and keeps my own tracking records up to date. It sends nothing to anyone but me.</p>
 
     <figure class="flow">
       <svg viewBox="0 0 400 352" role="img" aria-labelledby="ae-t ae-d">
         <title id="ae-t">Aegis boundaries</title>
-        <desc id="ae-d">Trigger: every night before I start, and new mail every five minutes. Decides: what needs me today, and which mail is noise. May: write one morning brief, label mail or undo its own labels, move approved noise out of the inbox, update my own tracking records, message me privately. Never: delete mail, send to anyone but me, brief from stale input, or let a failed run look like a quiet morning.</desc>
+        <desc id="ae-d">Trigger: every night before I start, and new mail every five minutes. Decides: what needs me today, and which mail is noise. Allowed to: write one morning brief, label mail or undo its own labels, clear noise out of the inbox, update my own tracking records, message me privately. Never: delete mail, send to anyone but me, or brief from stale input.</desc>
         <defs><marker id="ae-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
@@ -496,11 +494,11 @@
           <text x="222" y="44">What needs me today</text><text x="222" y="68">Which mail is noise, and</text><text x="222" y="85">which needs me right now</text>
           <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ae-arr)"/>
           <rect x="0" y="152" width="190" height="196" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
-          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
-          <text x="12" y="196">Write one morning brief</text><text x="12" y="213">Label mail, or undo</text><text x="12" y="230">its own labels</text><text x="12" y="247">Move approved noise</text><text x="12" y="264">out of the inbox</text><text x="12" y="281">Update my own</text><text x="12" y="298">tracking records</text><text x="12" y="315">Message me privately</text>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">ALLOWED TO</text>
+          <text x="12" y="196">write one morning brief</text><text x="12" y="213">label mail, or undo</text><text x="12" y="230">its own labels</text><text x="12" y="247">clear noise out</text><text x="12" y="264">of the inbox</text><text x="12" y="281">update my own</text><text x="12" y="298">tracking records</text><text x="12" y="315">message me privately</text>
           <rect x="210" y="152" width="190" height="196" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
           <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
-          <text x="222" y="196">Delete mail</text><text x="222" y="213">Send to anyone but me</text><text x="222" y="230">Brief from stale input</text><text x="222" y="247">Let a failed run look</text><text x="222" y="264">like a quiet morning</text>
+          <text x="222" y="196">Delete mail</text><text x="222" y="213">Send to anyone but me</text><text x="222" y="230">Brief from stale input</text>
         </g>
       </svg>
       <figcaption>Trigger, decision, what it may do, and what it never does.</figcaption>
@@ -508,17 +506,15 @@
 
     <table class="plate">
       <tr><th scope="row">One-time backlog pass, one inbox</th><td>2,142 of 4,143 messages labelled, 0 errors, read back from the mailbox; nothing left the inbox</td></tr>
-      <tr><th scope="row">Held back by the labeler's guard</th><td>614 messages</td></tr>
-      <tr><th scope="row">Write tools in the model session</th><td>Removed before the session starts</td></tr>
-      <tr><th scope="row">A failed run</th><td>Alerts from an external dead-man's switch instead of looking like a quiet morning</td></tr>
+      <tr><th scope="row">Protected from sorting by a safety check</th><td>614 messages</td></tr>
     </table>
 
     <h3>What broke, and the fix</h3>
     <div class="proved">
-      <p>The first build was described as read-only because the model session ran with a list of allowed tools. Testing showed an allowed-tools list only pre-approves the tools on it: a tool left off the list is still callable. Only a deny list removes a tool. The claim was withdrawn and the session was rebuilt on a deny list, which is how the night agents have been built since.</p>
+      <p>In the first test batch for mail sorting, one account-security notice was sorted as noise. The safety check was widened to protect account-security mail before the full backlog ran, and in that run nothing left the inbox.</p>
       <p>The same honesty applies now. Since October Aegis labels and moves mail, so it is no longer described as read-only anywhere. It is report-and-sort: it never deletes, and it messages only me.</p>
     </div>
-    <p class="quiet">My part: I specified what it reads, what it may change and what it must never do, and approved each widening of that boundary.</p>
+    <p class="quiet">My part: I specified what it reads, what it may change and what it must never do, and approved each widening of what it may do.</p>
   </article>
 
   <hr class="shelf">
@@ -527,12 +523,12 @@
     <h2>Kestrel: the night dispatcher</h2>
     <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
     <p class="problem">Some document and research work is specified well enough to run overnight, if the run can be trusted unattended.</p>
-    <p>Kestrel is a night dispatcher that handles documents and research for specific night tasks. It starts only once Aegis has finished. The night runs as five staged model sessions: lighter stages on a smaller model, judgement and document builds on a larger one. It researches the open web through parallel workers that save each source page verbatim, and treats web text as data that can never steer it. It leaves a queue for my review in the morning.</p>
+    <p>Kestrel is a night dispatcher that handles documents and research for specific night tasks. It starts only once Aegis has finished. The night runs as five staged model sessions: lighter stages on a smaller model, judgement and document builds on a larger one. It researches the open web through parallel workers that save each source page verbatim. It leaves a queue for my review in the morning.</p>
 
     <figure class="flow">
       <svg viewBox="0 0 400 284" role="img" aria-labelledby="ke-t ke-d">
         <title id="ke-t">Kestrel boundaries</title>
-        <desc id="ke-d">Trigger: nightly, once the morning brief agent has finished. Decides: which night tasks are ready to run, and what waits for me in the morning. May: research the open web, build documents, queue them for my review, email me the queue. Never: send, draft or message anyone; use a browser or a calendar; take orders from web text.</desc>
+        <desc id="ke-d">Trigger: nightly, once the morning brief agent has finished. Decides: which night tasks are ready to run, and what waits for me in the morning. Allowed to: research the open web, build documents, queue them for my review, email me the queue. Never: contact anyone but me, or submit or publish anything.</desc>
         <defs><marker id="ke-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
@@ -544,21 +540,20 @@
           <text x="222" y="44">Which night tasks are</text><text x="222" y="61">ready to run</text><text x="222" y="85">What waits for me</text><text x="222" y="102">in the morning</text>
           <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ke-arr)"/>
           <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
-          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
-          <text x="12" y="196">Research the open web</text><text x="12" y="213">Build documents</text><text x="12" y="230">Queue them for my review</text><text x="12" y="247">Email me the queue</text>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">ALLOWED TO</text>
+          <text x="12" y="196">research the open web</text><text x="12" y="213">build documents</text><text x="12" y="230">queue them for my review</text><text x="12" y="247">email me the queue</text>
           <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
           <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
-          <text x="222" y="196">Send, draft or message</text><text x="222" y="213">Use a browser or</text><text x="222" y="230">a calendar</text><text x="222" y="247">Take orders from</text><text x="222" y="264">web text</text>
+          <text x="222" y="196">Contact anyone but me</text><text x="222" y="213">Submit or publish</text><text x="222" y="230">anything</text>
         </g>
       </svg>
-      <figcaption>The morning email goes out from a separate mailer with one fixed recipient. The model sessions never hold a send tool.</figcaption>
+      <figcaption>The morning email goes out from a separate mailer with one fixed recipient.</figcaption>
     </figure>
 
     <table class="plate">
       <tr><th scope="row">Model sessions per night</th><td>Five, staged</td></tr>
       <tr><th scope="row">Seam tests between the stages</th><td>148 checks</td></tr>
       <tr><th scope="row">End-to-end dry run before the research stage went live</th><td>124 minutes, passed</td></tr>
-      <tr><th scope="row">The tool boundary</th><td>Tested by execution at the start of every run</td></tr>
     </table>
 
     <h3>What broke, and the fix</h3>
@@ -566,7 +561,7 @@
       <p>Its first live night succeeded and reported failure. The runner checked a timestamp as text after the JSON parser had already turned it into a date, so a fully successful run pinged the failure alarm, pushed "run failed" and skipped the morning email. Fixed by comparing the values as times.</p>
       <p>Later, a single network miss could cost the whole night. Each stage now waits for the network and picks up the same session where it stopped, within a retry budget, and any alarm the outage kept from being delivered is held and retried after the run.</p>
     </div>
-    <p class="quiet">My part: I specified the night tasks, the stage split, the tool boundary and the rule that web text is data.</p>
+    <p class="quiet">My part: I specified the night tasks, the stage split and its limits.</p>
   </article>
 
   <hr class="shelf">
@@ -580,7 +575,7 @@
     <figure class="flow">
       <svg viewBox="0 0 400 284" role="img" aria-labelledby="wa-t wa-d">
         <title id="wa-t">Warden boundaries</title>
-        <desc id="wa-d">Trigger: every morning, after the night agents finish. Decides: does the written record match what the systems actually show. May: correct counts it derives, logging old and new; propose prose fixes for my approval; report everything else. Never: write without a passing known-bad and known-clean proof pair, change code or prompts, or judge a fact it could not read.</desc>
+        <desc id="wa-d">Trigger: every morning, after the night agents finish. Decides: does the written record match what the systems actually show. Allowed to: correct counts it derives, logging old and new; propose prose fixes for my approval; report everything else. Never: change code or prompts, or apply a prose change without my approval.</desc>
         <defs><marker id="wa-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
@@ -592,11 +587,11 @@
           <text x="222" y="44">Does the written record</text><text x="222" y="61">match what the systems</text><text x="222" y="78">actually show?</text>
           <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#wa-arr)"/>
           <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
-          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
-          <text x="12" y="196">Correct counts it derives,</text><text x="12" y="213">logging old and new</text><text x="12" y="230">Propose prose fixes</text><text x="12" y="247">for my approval</text><text x="12" y="264">Report everything else</text>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">ALLOWED TO</text>
+          <text x="12" y="196">correct counts it derives,</text><text x="12" y="213">logging old and new</text><text x="12" y="230">propose prose fixes</text><text x="12" y="247">for my approval</text><text x="12" y="264">report everything else</text>
           <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
           <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
-          <text x="222" y="196">Write without a passing</text><text x="222" y="213">known-bad / known-clean</text><text x="222" y="230">proof pair</text><text x="222" y="247">Change code or prompts</text><text x="222" y="264">Judge an unread fact</text>
+          <text x="222" y="196">Change code or prompts</text><text x="222" y="213">Apply a prose change</text><text x="222" y="230">without my approval</text>
         </g>
       </svg>
       <figcaption>A canary fact with a deliberately inverted check must fail every run; if it ever passes, both write stages are skipped.</figcaption>
@@ -623,12 +618,12 @@
     <h2>A private reflection-depth agent</h2>
     <p class="when">Private, running since September 2026; the depth check since October 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
     <p class="problem">A daily written reflection is only useful if it connects the material to the writer. A summary is easier to write and teaches nothing.</p>
-    <p>I write one short reflection a day. The agent checks whether it connects what I read to me, or only summarizes it. If it only summarizes, or is still empty in the evening, it nudges me privately the same day. The next morning it sends back two or three of my own sentences, verbatim. The daily check is deterministic: no language model, and it makes no writes. The morning step uses a model with no tools that may only pick sentences, never rewrite them. What it reads stays private.</p>
+    <p>I write one short reflection a day. The agent checks whether it connects what I read to me, or only summarizes it. If it only summarizes, or is still empty in the evening, it nudges me privately the same day. The next morning it sends back two or three of my own sentences, verbatim. The daily check is deterministic: no language model, and it makes no writes. In the morning step a model may only pick sentences, never rewrite them.</p>
 
     <figure class="flow">
       <svg viewBox="0 0 400 284" role="img" aria-labelledby="re-t re-d">
         <title id="re-t">Reflection-depth agent boundaries</title>
-        <desc id="re-d">Trigger: every fifteen minutes during the day, and each morning. Decides: does the entry connect the material to me, or only summarize it. May: nudge me privately the same day; the next morning, send back two or three of my own sentences verbatim. Never: rewrite my words, show a score anywhere, edit an entry, or post anywhere shared.</desc>
+        <desc id="re-d">Trigger: every fifteen minutes during the day, and each morning. Decides: does the entry connect the material to me, or only summarize it. Allowed to: nudge me privately the same day; the next morning, send back two or three of my own sentences verbatim. Never: rewrite my words, show a score anywhere, or edit an entry.</desc>
         <defs><marker id="re-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
         <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
           <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
@@ -640,11 +635,11 @@
           <text x="222" y="44">Does the entry connect</text><text x="222" y="61">the material to me,</text><text x="222" y="78">or only summarize it?</text>
           <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#re-arr)"/>
           <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
-          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
-          <text x="12" y="196">Nudge me privately</text><text x="12" y="213">the same day</text><text x="12" y="237">Next morning, send back</text><text x="12" y="254">two or three of my own</text><text x="12" y="271">sentences, verbatim</text>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">ALLOWED TO</text>
+          <text x="12" y="196">nudge me privately</text><text x="12" y="213">the same day</text><text x="12" y="230">next morning, send back</text><text x="12" y="247">two or three of my own</text><text x="12" y="264">sentences, verbatim</text>
           <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
           <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
-          <text x="222" y="196">Rewrite my words</text><text x="222" y="213">Show a score anywhere</text><text x="222" y="230">Edit an entry</text><text x="222" y="247">Post anywhere shared</text>
+          <text x="222" y="196">Rewrite my words</text><text x="222" y="213">Show a score anywhere</text><text x="222" y="230">Edit an entry</text>
         </g>
       </svg>
       <figcaption>Trigger, decision, what it may do, and what it never does.</figcaption>
@@ -660,7 +655,7 @@
     <h3>What broke, and the fix</h3>
     <div class="proved">
       <p>The first design of the morning step paraphrased my entries. 13 of 18 paraphrases passed an automatic word check, and a hand read then found 2 of those 13 changing my meaning by dropping a short qualifying phrase. The word check could not see it, because every word it tested was still mine.</p>
-      <p>Paraphrase was rejected. A model with no tools now only picks two or three of my sentences, and they are sent verbatim in quotation marks: 0 of 18 claims not in the entry. Accuracy over polish.</p>
+      <p>Paraphrase was rejected. A model now only picks two or three of my sentences, and they are sent verbatim in quotation marks: 0 of 18 claims not in the entry. Accuracy over polish.</p>
     </div>
     <p class="quiet">My part: I set its purpose and rule on the questions its builds hold for me. The connection rule and the test labels were drafted by the build session.</p>
   </article>
