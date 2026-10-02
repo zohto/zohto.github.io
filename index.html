@@ -116,6 +116,13 @@
   .map img { display: block; width: 100%; height: auto; }
   .map figcaption { color: var(--ink-3); font-size: 0.9rem; margin-top: 0.6rem; max-width: var(--measure); }
 
+  /* agent entries: one diagram each, trigger to never */
+  .agent .problem { font-size: 1.1rem; color: var(--ink); margin: 0.2rem 0 1rem; }
+  .flow { margin: 1.4rem 0 2rem; max-width: 36rem; }
+  .flow svg { width: 100%; height: auto; display: block; }
+  .flow figcaption { color: var(--ink-3); font-size: 0.9rem; margin-top: 0.6rem; max-width: var(--measure); }
+  .agents-links { list-style: none; padding: 0; margin: 0 0 1.4rem; max-width: var(--measure); display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; }
+
   footer { margin-top: 10vh; color: var(--ink-3); font-size: 0.95rem; position: relative; max-width: 46rem; padding-right: 110px; }
   footer p { max-width: none; }
   footer a { color: var(--ink-2); }
@@ -146,6 +153,7 @@
     a { color: #111; text-decoration: none; }
     .index .k a::after, footer a::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; }
     .poster, .map a { border-color: #999; outline: none; box-shadow: none; background: #fff; }
+    .flow svg { background: #151412; }
     .shelf { background: #999; box-shadow: none; }
     .proved { border-left-color: #555; }
     h1 { font-size: 2.2rem; }
@@ -251,6 +259,38 @@
         <div class="t">A work queue for AI coding agents</div>
         <div class="d">Sessions claim work from a board, stop for a person's approval before executing, and write blockers to the record the moment they hit one. Seven skills and a template, in daily use.</div>
         <div class="k"><span>Since July 2026</span><span>Claude Code, Notion</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="tier">
+    <h2>Agents I designed and run</h2>
+    <p>Four scheduled agents and the operating model that governs them. Each entry takes a minute and includes what broke. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
+    <ul class="index">
+      <li>
+        <div class="t"><a href="#hub">Axis Core</a></div>
+        <div class="d">How the agents and the AI coding sessions that maintain them take work, record decisions and get checked.</div>
+        <div class="k"><span>Since September 2026</span><span>Claude Code, Python, Notion</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="#aegis">Aegis</a></div>
+        <div class="d">Overnight triage of mail, calendar, open tasks and system health into one morning brief, plus sorting of new mail as it arrives.</div>
+        <div class="k"><span>Since September 2026</span><span>Claude Code, n8n, Python</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="#kestrel">Kestrel</a></div>
+        <div class="d">A night dispatcher that handles documents and research for specific night tasks and leaves a queue for my review.</div>
+        <div class="k"><span>Since September 2026</span><span>Claude Code, Python</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="#warden">Warden</a></div>
+        <div class="d">A deterministic checker, with no language model, that compares what my written record says with what the systems actually show.</div>
+        <div class="k"><span>Since September 2026</span><span>Python</span></div>
+      </li>
+      <li>
+        <div class="t"><a href="#reflection">A private reflection-depth agent</a></div>
+        <div class="d">Checks whether a daily written reflection connects the material to the writer or only summarizes it.</div>
+        <div class="k"><span>Since September 2026</span><span>Python, Claude Code</span></div>
       </li>
     </ul>
   </section>
@@ -371,6 +411,258 @@
       <li><span><a href="https://github.com/zohto/eval-harness">The repository</a>, design notes and a sample report</span><span>shown</span></li>
       <li class="never"><span>The client pipeline's data, referenced as anonymized narrative only</span><span>never</span></li>
     </ul>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="hub" class="agent">
+    <h2>Axis Core: how my agents are governed</h2>
+    <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
+    <p class="problem">Agents that run unattended are only useful if every change to them, and every miss, is caught by something other than luck.</p>
+    <p>Axis Core is the operating model behind the four agents below and the AI coding sessions that build and maintain them. I decide. A planning session turns a decision into a written, scoped work order. A coding session claims the order, does the work and writes the outcome back onto it before it may close. The night agents run on a schedule and report to me each morning. Everything lands in one record.</p>
+
+    <figure class="flow">
+      <svg viewBox="0 0 400 344" role="img" aria-labelledby="ax-t ax-d">
+        <title id="ax-t">Axis Core operating model</title>
+        <desc id="ax-d">Daytime work flows from my decision to a planning session that writes a scoped work order, then to a coding session that does it and writes the outcome back. Every night Aegis writes a morning brief, Kestrel runs night tasks after it, and Warden checks the record against the systems. A private reflection agent runs on its own. Work orders and decisions land in one record, and every scheduled run pings an external dead-man's switch.</desc>
+        <defs><marker id="ax-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
+        <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
+          <text x="0" y="13" fill="#9a9186" font-size="11" letter-spacing="0.08em">DAYTIME WORK</text>
+          <text x="220" y="13" fill="#9a9186" font-size="11" letter-spacing="0.08em">EVERY NIGHT</text>
+          <rect x="0" y="24" width="180" height="40" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/><text x="90" y="49" text-anchor="middle">I decide</text>
+          <line x1="90" y1="64" x2="90" y2="82" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ax-arr)"/>
+          <rect x="0" y="84" width="180" height="50" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="90" y="105" text-anchor="middle">A planning session writes</text><text x="90" y="122" text-anchor="middle">a scoped work order</text>
+          <line x1="90" y1="134" x2="90" y2="152" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ax-arr)"/>
+          <rect x="0" y="154" width="180" height="50" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="90" y="175" text-anchor="middle">A coding session does it</text><text x="90" y="192" text-anchor="middle">and writes the outcome back</text>
+          <rect x="220" y="24" width="180" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="310" y="49" text-anchor="middle">Aegis: morning brief</text>
+          <line x1="310" y1="64" x2="310" y2="82" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ax-arr)"/>
+          <rect x="220" y="84" width="180" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="310" y="109" text-anchor="middle">Kestrel: night tasks</text>
+          <line x1="310" y1="124" x2="310" y2="142" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ax-arr)"/>
+          <rect x="220" y="144" width="180" height="40" fill="none" stroke="#b3aa9b" stroke-width="1.2"/><text x="310" y="169" text-anchor="middle">Warden: checks the record</text>
+          <rect x="220" y="204" width="180" height="40" fill="none" stroke="#9a9186" stroke-width="1.2" stroke-dasharray="4 3"/><text x="310" y="222" text-anchor="middle" fill="#b3aa9b" font-size="12">Private reflection agent,</text><text x="310" y="237" text-anchor="middle" fill="#b3aa9b" font-size="12">runs on its own</text>
+          <line x1="90" y1="204" x2="90" y2="262" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ax-arr)"/>
+          <path d="M210 164 L200 164 L200 262" fill="none" stroke="#9a9186" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#ax-arr)"/>
+          <rect x="0" y="264" width="400" height="40" fill="none" stroke="#7b4f2c" stroke-width="2"/><text x="200" y="289" text-anchor="middle" fill="#b3aa9b">One record: work orders and decisions</text>
+          <text x="200" y="334" text-anchor="middle" fill="#6b9a63" font-size="12">Every scheduled run pings an external dead-man's switch</text>
+        </g>
+      </svg>
+      <figcaption>Who does what. The dashed line is Warden comparing the record with what the systems show.</figcaption>
+    </figure>
+
+    <table class="plate">
+      <tr><th scope="row">Work orders completed through it</th><td>248, since July 2026</td></tr>
+      <tr><th scope="row">Decisions on the record</th><td>More than 1,000</td></tr>
+      <tr><th scope="row">A missed run</th><td>Alerts from an external dead-man's switch; one machine heartbeat is the only check that reaches my phone</td></tr>
+      <tr><th scope="row">Before a change to an agent goes live</th><td>Its test suites pass and its schedule matches one timing manifest; a major change also passes an end-to-end dry run</td></tr>
+      <tr><th scope="row">Writes to the record</th><td>Through one shared layer that refuses known failure shapes and checks each write against the exact text sent</td></tr>
+    </table>
+
+    <h3>The agents</h3>
+    <ul class="agents-links">
+      <li><a href="#aegis">Aegis</a></li>
+      <li><a href="#kestrel">Kestrel</a></li>
+      <li><a href="#warden">Warden</a></li>
+      <li><a href="#reflection">The reflection-depth agent</a></li>
+    </ul>
+
+    <h3>What broke, and the fix</h3>
+    <div class="proved">
+      <p>Two agents were moved to earlier slots and their dead-man checks were not. The next night both ran clean, finished their work and sent their success signals, and both were reported down at exactly the old schedule plus its grace period. A monitor that is not moved with the thing it watches does not lose coverage; it inverts, and a false alarm every morning teaches its owner to ignore the real one.</p>
+      <p>Fixed the same day with a rule that a schedule change moves its check in the same session. Two weeks later it became mechanical: one timing manifest, and a script that moves the task, the check and the agent's configuration together and reads all three back.</p>
+    </div>
+    <p class="quiet">My part: I designed the operating model and its division of authority, specify each agent and each change to one, and approve what an agent may not decide alone.</p>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="aegis" class="agent">
+    <h2>Aegis: the morning brief</h2>
+    <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
+    <p class="problem">Morning triage across mail, calendar, open tasks and system health was mine to do by hand, every day.</p>
+    <p>Every night Aegis reads my mail, calendar, open action items and the health of my other systems, and writes one brief before I start, led by what to act on today. Since October 2026 it also sorts new mail as it arrives, every five minutes, and messages me privately when something needs me now. It labels mail and moves noise out of the inbox for senders I have approved, through a guarded labeler with no delete path. It sends nothing to anyone but me.</p>
+
+    <figure class="flow">
+      <svg viewBox="0 0 400 284" role="img" aria-labelledby="ae-t ae-d">
+        <title id="ae-t">Aegis boundaries</title>
+        <desc id="ae-d">Trigger: every night before I start, and new mail every five minutes. Decides: what needs me today, and which mail is noise. May: write one morning brief, label mail, move approved noise out of the inbox, message me privately. Never: delete mail, send to anyone but me, brief from stale input, or let a failed run look like a quiet morning.</desc>
+        <defs><marker id="ae-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
+        <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
+          <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">TRIGGER</text>
+          <text x="12" y="44">Every night,</text><text x="12" y="61">before I start</text><text x="12" y="85">New mail, every</text><text x="12" y="102">five minutes</text>
+          <line x1="190" y1="64" x2="208" y2="64" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ae-arr)"/>
+          <rect x="210" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="222" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">DECIDES</text>
+          <text x="222" y="44">What needs me today</text><text x="222" y="68">Which mail is noise, and</text><text x="222" y="85">which needs me right now</text>
+          <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ae-arr)"/>
+          <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
+          <text x="12" y="196">Write one morning brief</text><text x="12" y="213">Label mail</text><text x="12" y="230">Move approved noise</text><text x="12" y="247">out of the inbox</text><text x="12" y="264">Message me privately</text>
+          <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
+          <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
+          <text x="222" y="196">Delete mail</text><text x="222" y="213">Send to anyone but me</text><text x="222" y="230">Brief from stale input</text><text x="222" y="247">Let a failed run look</text><text x="222" y="264">like a quiet morning</text>
+        </g>
+      </svg>
+      <figcaption>Trigger, decision, what it may do, and what it never does.</figcaption>
+    </figure>
+
+    <table class="plate">
+      <tr><th scope="row">One-time backlog pass, one inbox</th><td>2,142 of 4,143 messages labelled, 0 errors, read back from the mailbox; nothing left the inbox</td></tr>
+      <tr><th scope="row">Held back by the labeler's guard</th><td>614 messages</td></tr>
+      <tr><th scope="row">Write tools in the model session</th><td>Removed before the session starts</td></tr>
+      <tr><th scope="row">A failed run</th><td>Alerts from an external dead-man's switch instead of looking like a quiet morning</td></tr>
+    </table>
+
+    <h3>What broke, and the fix</h3>
+    <div class="proved">
+      <p>The first build was described as read-only because the model session ran with a list of allowed tools. Testing showed an allowed-tools list only pre-approves the tools on it: a tool left off the list is still callable. Only a deny list removes a tool. The claim was withdrawn and the session was rebuilt on a deny list, which is how the night agents have been built since.</p>
+      <p>The same honesty applies now. Since October Aegis labels and moves mail, so it is no longer described as read-only anywhere. It is report-and-sort: it never deletes, and it messages only me.</p>
+    </div>
+    <p class="quiet">My part: I specified what it reads, what it may change and what it must never do, and approved each widening of that boundary.</p>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="kestrel" class="agent">
+    <h2>Kestrel: the night dispatcher</h2>
+    <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
+    <p class="problem">Some document and research work is specified well enough to run overnight, if the run can be trusted unattended.</p>
+    <p>Kestrel is a night dispatcher that handles documents and research for specific night tasks. It starts only once Aegis has finished. The night runs as five staged model sessions: lighter stages on a smaller model, judgement and document builds on a larger one. It researches the open web through parallel workers that save each source page verbatim, and treats web text as data that can never steer it. It leaves a queue for my review in the morning.</p>
+
+    <figure class="flow">
+      <svg viewBox="0 0 400 284" role="img" aria-labelledby="ke-t ke-d">
+        <title id="ke-t">Kestrel boundaries</title>
+        <desc id="ke-d">Trigger: nightly, once the morning brief agent has finished. Decides: which night tasks are ready to run, and what waits for me in the morning. May: research the open web, build documents, queue them for my review, email me the queue. Never: send, draft or message anyone; use a browser or a calendar; take orders from web text.</desc>
+        <defs><marker id="ke-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
+        <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
+          <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">TRIGGER</text>
+          <text x="12" y="44">Nightly, once the</text><text x="12" y="61">morning brief agent</text><text x="12" y="78">has finished</text>
+          <line x1="190" y1="64" x2="208" y2="64" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ke-arr)"/>
+          <rect x="210" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="222" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">DECIDES</text>
+          <text x="222" y="44">Which night tasks are</text><text x="222" y="61">ready to run</text><text x="222" y="85">What waits for me</text><text x="222" y="102">in the morning</text>
+          <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#ke-arr)"/>
+          <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
+          <text x="12" y="196">Research the open web</text><text x="12" y="213">Build documents</text><text x="12" y="230">Queue them for my review</text><text x="12" y="247">Email me the queue</text>
+          <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
+          <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
+          <text x="222" y="196">Send, draft or message</text><text x="222" y="213">Use a browser or</text><text x="222" y="230">a calendar</text><text x="222" y="247">Take orders from</text><text x="222" y="264">web text</text>
+        </g>
+      </svg>
+      <figcaption>The morning email goes out from a separate mailer with one fixed recipient. The model sessions never hold a send tool.</figcaption>
+    </figure>
+
+    <table class="plate">
+      <tr><th scope="row">Model sessions per night</th><td>Five, staged</td></tr>
+      <tr><th scope="row">Seam tests between the stages</th><td>148 checks</td></tr>
+      <tr><th scope="row">End-to-end dry run before the research stage went live</th><td>124 minutes, passed</td></tr>
+      <tr><th scope="row">The tool boundary</th><td>Tested by execution at the start of every run</td></tr>
+    </table>
+
+    <h3>What broke, and the fix</h3>
+    <div class="proved">
+      <p>Its first live night succeeded and reported failure. The runner checked a timestamp as text after the JSON parser had already turned it into a date, so a fully successful run pinged the failure alarm, pushed "run failed" and skipped the morning email. Fixed by comparing the values as times.</p>
+      <p>Later, a single network miss could cost the whole night. Each stage now waits for the network and picks up the same session where it stopped, within a retry budget, and any alarm the outage kept from being delivered is held and retried after the run.</p>
+    </div>
+    <p class="quiet">My part: I specified the night tasks, the stage split, the tool boundary and the rule that web text is data.</p>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="warden" class="agent">
+    <h2>Warden: the record checker</h2>
+    <p class="when">Running since September 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
+    <p class="problem">A written record of how systems behave drifts from how they actually behave, and nothing announces it.</p>
+    <p>Every morning after the night agents finish, Warden re-derives facts about my systems from the systems themselves: scheduled tasks, run logs, workflow flags, code constants, database counts and page dates. Then it compares each one with what the written record asserts. It has no language model. It acts in three tiers: it corrects only counts it derives itself, logging the old and new value; it proposes prose changes and waits for my approval; and on code and prompts it only reports.</p>
+
+    <figure class="flow">
+      <svg viewBox="0 0 400 284" role="img" aria-labelledby="wa-t wa-d">
+        <title id="wa-t">Warden boundaries</title>
+        <desc id="wa-d">Trigger: every morning, after the night agents finish. Decides: does the written record match what the systems actually show. May: correct counts it derives, logging old and new; propose prose fixes for my approval; report everything else. Never: write without a passing known-bad and known-clean proof pair, change code or prompts, or judge a fact it could not read.</desc>
+        <defs><marker id="wa-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
+        <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
+          <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">TRIGGER</text>
+          <text x="12" y="44">Every morning, after</text><text x="12" y="61">the night agents finish</text>
+          <line x1="190" y1="64" x2="208" y2="64" stroke="#9a9186" stroke-width="1.2" marker-end="url(#wa-arr)"/>
+          <rect x="210" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="222" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">DECIDES</text>
+          <text x="222" y="44">Does the written record</text><text x="222" y="61">match what the systems</text><text x="222" y="78">actually show?</text>
+          <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#wa-arr)"/>
+          <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
+          <text x="12" y="196">Correct counts it derives,</text><text x="12" y="213">logging old and new</text><text x="12" y="230">Propose prose fixes</text><text x="12" y="247">for my approval</text><text x="12" y="264">Report everything else</text>
+          <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
+          <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
+          <text x="222" y="196">Write without a passing</text><text x="222" y="213">known-bad / known-clean</text><text x="222" y="230">proof pair</text><text x="222" y="247">Change code or prompts</text><text x="222" y="264">Judge an unread fact</text>
+        </g>
+      </svg>
+      <figcaption>A canary fact with a deliberately inverted check must fail every run; if it ever passes, both write stages are skipped.</figcaption>
+    </figure>
+
+    <table class="plate">
+      <tr><th scope="row">At write-authority go-live, 12 September 2026</th><td>59 facts checked: 45 matched, 10 drifted, 0 unreadable</td></tr>
+      <tr><th scope="row">Proof harness on the same day</th><td>9 of 9, with the canary detecting inversion</td></tr>
+      <tr><th scope="row">Reverse index built at launch</th><td>1,751 artifacts and 7,275 links between them</td></tr>
+      <tr><th scope="row">Language model</th><td>None</td></tr>
+    </table>
+
+    <h3>What broke, and the fix</h3>
+    <div class="proved">
+      <p>Another agent changed the shape of a file Warden reads: a bare list became an object carrying a count. One unreadable fact out of 59 then stopped every later step of the run, including four corrections, the run record and the status message. Now a partial run still raises an alarm, then runs every step, acting fact by fact and never writing or judging a fact whose own check did not read. File readers accept both shapes and treat a count that does not match as a truncated read. A file passed between two agents is an interface, not just a file.</p>
+      <p>Earlier, its write check asked whether the new text was present and the old text gone. That reports a correct edit that quotes the text it replaces as a failure. It now compares what it reads back with the exact text it sent.</p>
+    </div>
+    <p class="quiet">My part: I specified the fact base, the three tiers and the proof gate, and I approve or decline every prose change it proposes.</p>
+  </article>
+
+  <hr class="shelf">
+
+  <article id="reflection" class="agent">
+    <h2>A private reflection-depth agent</h2>
+    <p class="when">Private, running since September 2026; the depth check since October 2026. Designed, specified, governed and operated by me; the code was written by AI coding sessions under my specifications.</p>
+    <p class="problem">A daily written reflection is only useful if it connects the material to the writer. A summary is easier to write and teaches nothing.</p>
+    <p>I write one short reflection a day. The agent checks whether it connects what I read to me, or only summarizes it. If it only summarizes, or is still empty in the evening, it nudges me privately the same day. The next morning it sends back two or three of my own sentences, verbatim. The daily check is deterministic: no language model, and it makes no writes. The morning step uses a model with no tools that may only pick sentences, never rewrite them. What it reads stays private.</p>
+
+    <figure class="flow">
+      <svg viewBox="0 0 400 284" role="img" aria-labelledby="re-t re-d">
+        <title id="re-t">Reflection-depth agent boundaries</title>
+        <desc id="re-d">Trigger: every fifteen minutes during the day, and each morning. Decides: does the entry connect the material to me, or only summarize it. May: nudge me privately the same day; the next morning, send back two or three of my own sentences verbatim. Never: rewrite my words, show a score anywhere, edit an entry, or post anywhere shared.</desc>
+        <defs><marker id="re-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a9186"/></marker></defs>
+        <g font-family="Archivo, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#ece5d8">
+          <rect x="0" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">TRIGGER</text>
+          <text x="12" y="44">Every 15 minutes</text><text x="12" y="61">during the day</text><text x="12" y="85">Each morning</text>
+          <line x1="190" y1="64" x2="208" y2="64" stroke="#9a9186" stroke-width="1.2" marker-end="url(#re-arr)"/>
+          <rect x="210" y="0" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="222" y="22" fill="#9a9186" font-size="11" letter-spacing="0.08em">DECIDES</text>
+          <text x="222" y="44">Does the entry connect</text><text x="222" y="61">the material to me,</text><text x="222" y="78">or only summarize it?</text>
+          <path d="M305 128 L305 140 L95 140 L95 150" fill="none" stroke="#9a9186" stroke-width="1.2" marker-end="url(#re-arr)"/>
+          <rect x="0" y="152" width="190" height="128" fill="none" stroke="#b3aa9b" stroke-width="1.2"/>
+          <text x="12" y="174" fill="#9a9186" font-size="11" letter-spacing="0.08em">MAY</text>
+          <text x="12" y="196">Nudge me privately</text><text x="12" y="213">the same day</text><text x="12" y="237">Next morning, send back</text><text x="12" y="254">two or three of my own</text><text x="12" y="271">sentences, verbatim</text>
+          <rect x="210" y="152" width="190" height="128" fill="#2f4a33" stroke="#6b9a63" stroke-width="1.5"/>
+          <text x="222" y="174" fill="#6b9a63" font-size="11" letter-spacing="0.08em">NEVER</text>
+          <text x="222" y="196">Rewrite my words</text><text x="222" y="213">Show a score anywhere</text><text x="222" y="230">Edit an entry</text><text x="222" y="247">Post anywhere shared</text>
+        </g>
+      </svg>
+      <figcaption>Trigger, decision, what it may do, and what it never does.</figcaption>
+    </figure>
+
+    <table class="plate">
+      <tr><th scope="row">Labelled test set</th><td>21 days of entries, labelled before the rule was written</td></tr>
+      <tr><th scope="row">Agreement with the labels</th><td>20 of 21 days; all 4 summary-only days caught, 1 genuine reflection wrongly flagged</td></tr>
+      <tr><th scope="row">Morning return, claims not in the entry</th><td>0 of 18</td></tr>
+      <tr><th scope="row">Language model in the daily check</th><td>None</td></tr>
+    </table>
+
+    <h3>What broke, and the fix</h3>
+    <div class="proved">
+      <p>The first design of the morning step paraphrased my entries. 13 of 18 paraphrases passed an automatic word check, and a hand read then found 2 of those 13 changing my meaning by dropping a short qualifying phrase. The word check could not see it, because every word it tested was still mine.</p>
+      <p>Paraphrase was rejected. A model with no tools now only picks two or three of my sentences, and they are sent verbatim in quotation marks: 0 of 18 claims not in the entry. Accuracy over polish.</p>
+    </div>
+    <p class="quiet">My part: I specified what counts as a connection and what counts as a summary, and the rule that my words are returned, never rewritten.</p>
   </article>
 
   <hr class="shelf">
